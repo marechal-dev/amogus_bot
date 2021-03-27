@@ -3,8 +3,9 @@ const path = require('path')
 
 const client = new Discord.Client()
 
-const invite = "https://discord.com/oauth2/authorize?client_id=825060678150258758&scope=bot&permissions=3394624"
-const token = "ODI1MDYwNjc4MTUwMjU4NzU4.YF4bog.oNP-J0m6jWNzEfiZAZZTxQ-w1eQ"
+require('dotenv').config()
+
+const token = process.env.TOKEN
 
 const amogus_image = path.resolve(__dirname, 'images', 'amogus2.png')
 const sus_image = path.resolve(__dirname, 'images', 'sus.png')
@@ -90,17 +91,6 @@ client.on('message', async message => {
 
   if(message.content.includes(trigger_word)) {
     message.channel.send("sus 😳")
-  }
-})
-
-client.on('message', async message => {
-  let command = "%jamil"
-  let jamil_putao = "299288740118003723"
-  
-  if(message.author.bot) return
-
-  if(message.content.includes(command)) {
-    message.channel.send(`<@${jamil_putao}> putão kkkkk`)
   }
 })
 
