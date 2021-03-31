@@ -8,7 +8,7 @@ This Discord bot just replies messages containing the words "amogus", "sus", "im
 
 * [Node.js](https://nodejs.org/)
 * [Discord.js](https://discord.js.org/#/)
-* [path](https://yarnpkg.com/package/path) (You actually don't need to download this one, although is already included with Node.js)
+* [path](https://yarnpkg.com/package/path) (You actually don't need to download this one, as it is already included with Node.js)
 * [dotenv](https://yarnpkg.com/package/dotenv)
 * [nodemon](https://yarnpkg.com/package/nodemon)
 
