@@ -10,10 +10,14 @@ const token = process.env.TOKEN
 const amogus_image = path.resolve(__dirname, 'images', 'amogus2.png')
 const sus_image = path.resolve(__dirname, 'images', 'sus.png')
 const jerma_image = path.resolve(__dirname, 'images', 'jerma.jpg')
+const drip_image = path.resolve(__dirname, 'images', 'drip.jpg')
+const impasta_image = path.resolve(__dirname, 'images', 'impasta.jpg')
 
 const amogus_attachment = new Discord.MessageAttachment(amogus_image)
 const sus_attachment = new Discord.MessageAttachment(sus_image)
 const jerma_attachment = new Discord.MessageAttachment(jerma_image)
+const drip_attachment = new Discord.MessageAttachment(drip_image)
+const impasta_attachment = new Discord.MessageAttachment(impasta_image)
 
 
 client.on('ready', () => {
@@ -81,6 +85,30 @@ client.on('message', async message => {
 
   if(message.content.includes(trigger_word) || message.content.includes(capitalized_entire_word) || message.content.includes(capitalized_firstLetter_word)) {
     message.channel.send(jerma_attachment)
+  }
+})
+
+client.on('message', async message => {
+  let trigger_word = "drip"
+  let capitalized_entire_word = trigger_word.toUpperCase()
+  let capitalized_firstLetter_word = trigger_word.charAt(0).toUpperCase()+trigger_word.slice(1)
+
+  if(message.author.bot) return
+
+  if(message.content.includes(trigger_word) || message.content.includes(capitalized_entire_word) || message.content.includes(capitalized_firstLetter_word)) {
+    message.channel.send(drip_attachment)
+  }
+})
+
+client.on('message', async message => {
+  let trigger_word = "impasta"
+  let capitalized_entire_word = trigger_word.toUpperCase()
+  let capitalized_firstLetter_word = trigger_word.charAt(0).toUpperCase()+trigger_word.slice(1)
+
+  if(message.author.bot) return
+
+  if(message.content.includes(trigger_word) || message.content.includes(capitalized_entire_word) || message.content.includes(capitalized_firstLetter_word)) {
+    message.channel.send(impasta_attachment)
   }
 })
 
