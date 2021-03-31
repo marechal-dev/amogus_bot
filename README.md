@@ -2,7 +2,7 @@
 
 Yeah, you read it right.
 
-This Discord bot just replies messages containing the words "amogus", "sus", "imposter" and "😳".
+This Discord bot just replies messages containing the words "amogus", "sus", "imposter", "impasta", "drip" and "😳".
 
 ## Using
 
