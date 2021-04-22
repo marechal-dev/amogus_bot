@@ -122,4 +122,14 @@ client.on('message', async message => {
   }
 })
 
+client.on('message', async message => {
+  let trigger_whatever_is_this = "ඞ"
+
+  if(message.author.bot) return
+
+  if(message.content.includes(trigger_whatever_is_this)) {
+    message.channel.send("https://www.youtube.com/watch?v=vTIIMJ9tUc8")
+  }
+})
+
 client.login(token)
