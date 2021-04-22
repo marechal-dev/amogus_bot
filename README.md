@@ -4,7 +4,16 @@ Yeah, you read it right.
 
 This Discord bot just replies messages containing the words "amogus", "sus", "imposter", "impasta", "drip" and "😳".
 
-## Using
+**NEW**:
+
+* Voice commands:
+  * !amogus
+  * !aurora
+  * !message
+  * !liminal
+  * !solace
+
+## Using packages
 
 * [Node.js](https://nodejs.org/)
 * [Discord.js](https://discord.js.org/#/)

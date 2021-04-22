@@ -19,7 +19,6 @@ const jerma_attachment = new Discord.MessageAttachment(jerma_image)
 const drip_attachment = new Discord.MessageAttachment(drip_image)
 const impasta_attachment = new Discord.MessageAttachment(impasta_image)
 
-
 client.on('ready', () => {
   console.log("Amogus Bot is online")
   client.user.setPresence({
@@ -48,6 +47,21 @@ client.on('guildCreate', guild => {
   if (!channeltoSend) return
 
   channeltoSend.send(amogus_attachment)
+})
+
+client.on('message', async message => {
+  if(message.content === "!info") {
+
+    const embed_info_message = new Discord.MessageEmbed()
+    .setColor('#FF0000')
+    .setTitle("Amogus Bot")
+    .setDescription("Amogus Bot created with ❤️ by Marechal Dev. \n Check out my GitHub!")
+    .setURL('https://github.com/marechal-dev/amogus_bot')
+    .setThumbnail("http://amogus.space/hdmus.png")
+    .setFooter('Amogus Bot', "http://amogus.space/hdmus.png")
+
+    return message.channel.send(embed_info_message)
+  }
 })
 
 client.on('message', async message => {
@@ -129,6 +143,44 @@ client.on('message', async message => {
 
   if(message.content.includes(trigger_whatever_is_this)) {
     message.channel.send("https://www.youtube.com/watch?v=vTIIMJ9tUc8")
+  }
+})
+
+client.on('message', async message => {
+  let trigger_messages = ["!amogus", "!aurora", "!message", "!liminal", "!solace"]
+
+  const audio_paths_array = [
+    path.resolve(__dirname, 'sounds', 'amogusEarrape.mp3'),
+    path.resolve(__dirname, 'sounds', 'auroraWoods.mp3'),
+    path.resolve(__dirname, 'sounds', 'finalMessage.mp3'),
+    path.resolve(__dirname, 'sounds', 'liminalIncident.mp3'),
+    path.resolve(__dirname, 'sounds', 'longNightSolace.mp3')
+  ]
+
+  if(message.author.bot) return
+
+  for(let i = 0; i < trigger_messages.length; i++) {
+    if(message.content === trigger_messages[i]) {
+      const voice_channel = message.member.voice.channel
+      
+      if(!voice_channel) {
+        return message.channel.send('Você precisa estar em um canal de voz para usar os comandos.')
+      }else {
+        const connection = await voice_channel.join()
+        const dispatcher = connection.play(audio_paths_array[i])
+
+        dispatcher.on('start', () => {
+          dispatcher.resume()
+        })
+
+        dispatcher.on('finish', () => {
+          voice_channel.leave()
+          dispatcher.destroy()
+        })
+
+        dispatcher.on('error', console.error)
+      }
+    }
   }
 })
 
